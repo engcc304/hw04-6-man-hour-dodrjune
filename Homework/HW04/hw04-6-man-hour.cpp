@@ -26,3 +26,24 @@
         Employees ID = 0000500349
         Salary = U$ 374,000.00
 */
+#include <stdio.h>
+
+int main() {
+    char EmployID[10] ;
+    float hours ; 
+    float Salaryamounthours ;
+    float Salary ;
+    printf("Input the Employees ID :\n" ) ;
+    scanf ("%s",EmployID ) ;
+    printf ( "Input the working hrs :\n" ) ;
+    scanf ( "%f", &hours ) ;
+    printf ( " Salary amount/hr :\n" ) ; 
+    scanf ( "%f", &Salaryamounthours) ;
+
+    Salary = Salaryamounthours * hours ;
+    printf ( "Expected Output :\n" ) ;
+    printf ( " Employees ID = %s\n", EmployID ) ;
+    printf ("Salary = U$ %0.2f\n", Salary) ;
+
+    return 0;
+}//end function
