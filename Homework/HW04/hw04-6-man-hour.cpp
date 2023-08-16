@@ -27,23 +27,32 @@
         Salary = U$ 374,000.00
 */
 #include <stdio.h>
-
+void commaprint( int number ) {
+    if ( number < 1000 ) {
+        printf( "%d", number ) ;
+        return ;
+    }//end if
+    commaprint ( number / 1000 ) ;
+    printf ( ",%03d", number % 1000 ) ;
+}
 int main() {
-    char EmployID[10] ;
-    float hours ; 
-    float Salaryamounthours ;
-    float Salary ;
-    printf("Input the Employees ID :\n" ) ;
-    scanf ("%s",EmployID ) ;
-    printf ( "Input the working hrs :\n" ) ;
-    scanf ( "%f", &hours ) ;
-    printf ( " Salary amount/hr :\n" ) ; 
-    scanf ( "%f", &Salaryamounthours) ;
-
-    Salary = Salaryamounthours * hours ;
-    printf ( "Expected Output :\n" ) ;
-    printf ( "Employees ID = %s\n", EmployID ) ;
-    printf ("Salary = U$ %0.2f\n", Salary) ;
+    char id[10];
+    float timework;
+    float money;
+    printf ( "Test case: \n" ) ;
+    printf ( "Input the Employees ID (Max. 10 chars):\n" ) ;
+    scanf ( "%s", &id ) ;
+    printf ( "Input the working hrs:\n" ) ;
+    scanf ( "%f" , &timework ) ;
+    printf ( "Salary amount/hr:\n" ) ;
+    scanf ( "%f", &money ) ;
+    float sum ;
+    sum = timework * money ;
+    printf ( "Output: \n" ) ;
+    printf ( "Expected Output:\nEmployees ID = %s\n", id ) ;
+    printf ( "Salary = U$ " ) ;
+    commaprint ( (int)sum ) ;
+    printf ( ".%02d", (int) (sum * 100) % 100 ) ;
 
     return 0;
 }//end function
